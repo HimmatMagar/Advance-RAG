@@ -12,6 +12,7 @@ name = "advance-rag"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "import-ipynb" },
     { name = "langchain" },
     { name = "langchain-chroma" },
     { name = "langchain-community" },
@@ -29,6 +30,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "import-ipynb", specifier = ">=0.2.1" },
     { name = "langchain", specifier = ">=1.4.5" },
     { name = "langchain-chroma", specifier = ">=1.1.0" },
     { name = "langchain-community", specifier = ">=0.4.2" },
@@ -1331,6 +1333,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz", hash = "sha256:a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44", size = 216463, upload-time = "2026-09-17T14:11:04.752Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl", hash = "sha256:ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c", size = 69583, upload-time = "2026-09-17T14:11:03.168Z" },
+]
+
+[[package]]
+name = "import-ipynb"
+version = "0.2.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ipython" },
+    { name = "nbformat" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b3/64/fa165e69d20965db4faaf72ee8dd3221cd42babfcf534b1d093db9fc8aac/import_ipynb-0.2.1.tar.gz", hash = "sha256:79f831300cfcf11600657b4f310b2204e091e9169253a677f47949f39e4bba91", size = 5447, upload-time = "2026-08-14T07:56:22.051Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c6/a9/23602b0aaab580985949dbefd2f37fb3dedda469c3b13e0c69088c7fc9fc/import_ipynb-0.2.1-py3-none-any.whl", hash = "sha256:f5fe25de484a5a14c1ceaf9fa0484f85a74e2e1386331cc3d6a005c789efdc30", size = 4026, upload-time = "2026-08-14T02:30:50.562Z" },
 ]
 
 [[package]]
