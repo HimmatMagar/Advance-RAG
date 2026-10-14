@@ -1,16 +1,21 @@
+from pathlib import Path
 from ingestion import Ingestion
 from chunking import Chunking
 from indexing import VectorStore
 from retrieval import Retrievel
 from reranking import CrossEncoderReranker
+from generation import Generation
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 class AdvanceRAGPipeline:
     def __init__(self, query):
         self.query = query
 
     def build_db(self):
-        ingestion = Ingestion(directory="../data")
+        ingestion = Ingestion(directory=DATA_DIR)
         docs = ingestion.load_docs()
         
         chunks = Chunking(documents=docs)
@@ -34,4 +39,12 @@ class AdvanceRAGPipeline:
         ranking = CrossEncoderReranker()
         reranking_context = ranking.rerank(self.query, candidate, top_n=3)
 
-        return reranking_context
+        generate = Generation(query= self.query, reranked_results=reranking_context)
+        answer = generate.generate_answer()
+        return answer
+
+
+if __name__ == "__main__":
+    query = input("Give your question: ")
+    rag = AdvanceRAGPipeline(query=query)
+    print(rag.run_pipeline())

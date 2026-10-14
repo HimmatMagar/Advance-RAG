@@ -1,7 +1,7 @@
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
-PRESIST_DIR = "CHROMA_DB"
+PRESIST_DIR = "./CHROMA_DB"
 COLLECTION_NAME = 'Advance-RAG'
 class VectorStore:
 
@@ -11,7 +11,7 @@ class VectorStore:
         )
         self.chunks = chunks
 
-    def create_vector_store(self) -> Chroma:
+    def create_vector_store(self):
         """Creating new DB from documents"""
         vector_store = Chroma.from_documents(
             documents=self.chunks,
@@ -23,7 +23,7 @@ class VectorStore:
         return vector_store
 
     
-    def load_vector_db(self) -> Chroma:
+    def load_vector_db(self):
         """Loading Existing DB from local disk"""
         vector_store = Chroma(
             persist_directory=PRESIST_DIR,
