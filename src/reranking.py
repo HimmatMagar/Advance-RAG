@@ -1,15 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import time
 import torch
 from sentence_transformers import CrossEncoder
-
-
-# In[9]:
 
 
 class CrossEncoderReranker:
@@ -51,10 +42,3 @@ class CrossEncoderReranker:
             }
             for score, doc in ranked[:top_n]
         ]
-
-
-# In[ ]:
-
-
-
-
