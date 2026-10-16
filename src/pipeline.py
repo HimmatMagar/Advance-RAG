@@ -41,7 +41,7 @@ class AdvanceRAGPipeline:
 
         generate = Generation(query= self.query, reranked_results=reranking_context)
         answer = generate.generate_answer()
-        return answer
+        return answer.answer
 
 
 if __name__ == "__main__":
